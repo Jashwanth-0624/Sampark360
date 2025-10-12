@@ -1,0 +1,110 @@
+{
+    "name": "Agency",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Agency name"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "Implementing",
+          "Executing"
+        ],
+        "description": "Agency type"
+      },
+      "state_id": {
+        "type": "string",
+        "description": "Reference to State"
+      },
+      "state_name": {
+        "type": "string"
+      },
+      "district_id": {
+        "type": "string",
+        "description": "Reference to District (optional)"
+      },
+      "district_name": {
+        "type": "string"
+      },
+      "address": {
+        "type": "string",
+        "description": "Complete address"
+      },
+      "head_name": {
+        "type": "string",
+        "description": "Agency head/director name"
+      },
+      "head_contact": {
+        "type": "string",
+        "description": "Head contact number"
+      },
+      "head_email": {
+        "type": "string",
+        "format": "email"
+      },
+      "roles_description": {
+        "type": "string",
+        "description": "Detailed role and responsibilities"
+      },
+      "active_projects": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Array of project IDs"
+      },
+      "sla_terms": {
+        "type": "string",
+        "description": "Service Level Agreement terms"
+      },
+      "coordinates": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number"
+          },
+          "lng": {
+            "type": "number"
+          }
+        }
+      },
+      "documents": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "MOU, certificates, etc."
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Active",
+          "Inactive",
+          "Suspended"
+        ],
+        "default": "Active"
+      },
+      "established_date": {
+        "type": "string",
+        "format": "date"
+      }
+    },
+    "required": [
+      "name",
+      "type",
+      "state_id"
+    ]
+  }

@@ -1,0 +1,165 @@
+{
+    "name": "Project",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Project title"
+      },
+      "project_code": {
+        "type": "string",
+        "description": "Unique project code"
+      },
+      "component": {
+        "type": "string",
+        "enum": [
+          "Adarsh Gram",
+          "GIA",
+          "Hostel"
+        ],
+        "description": "PM-AJAY component"
+      },
+      "state_id": {
+        "type": "string"
+      },
+      "state_name": {
+        "type": "string"
+      },
+      "district_id": {
+        "type": "string"
+      },
+      "district_name": {
+        "type": "string"
+      },
+      "implementing_agency_id": {
+        "type": "string",
+        "description": "Implementing agency reference"
+      },
+      "implementing_agency_name": {
+        "type": "string"
+      },
+      "executing_agency_ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Multiple executing agencies"
+      },
+      "executing_agency_names": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "start_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "planned_end_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "actual_end_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "current_status": {
+        "type": "string",
+        "enum": [
+          "Planning",
+          "Approval Pending",
+          "In Progress",
+          "On Hold",
+          "Completed",
+          "Delayed"
+        ],
+        "default": "Planning"
+      },
+      "progress_percent": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100,
+        "default": 0
+      },
+      "budget_allocated": {
+        "type": "number",
+        "description": "Total budget in INR"
+      },
+      "funds_released": {
+        "type": "number",
+        "default": 0,
+        "description": "Funds released so far"
+      },
+      "funds_utilized": {
+        "type": "number",
+        "default": 0
+      },
+      "milestones": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "target_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "completion_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "Pending",
+                "In Progress",
+                "Completed",
+                "Delayed"
+              ]
+            }
+          }
+        }
+      },
+      "description": {
+        "type": "string",
+        "description": "Detailed project description"
+      },
+      "beneficiaries_count": {
+        "type": "number",
+        "description": "Number of beneficiaries"
+      },
+      "coordinates": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number"
+          },
+          "lng": {
+            "type": "number"
+          }
+        }
+      },
+      "priority": {
+        "type": "string",
+        "enum": [
+          "Low",
+          "Medium",
+          "High",
+          "Critical"
+        ],
+        "default": "Medium"
+      },
+      "delay_reason": {
+        "type": "string",
+        "description": "Reason for delay if applicable"
+      }
+    },
+    "required": [
+      "title",
+      "component",
+      "state_id",
+      "district_id"
+    ]
+  }

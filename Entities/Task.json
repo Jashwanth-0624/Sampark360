@@ -1,0 +1,103 @@
+{
+    "name": "Task",
+    "type": "object",
+    "properties": {
+      "project_id": {
+        "type": "string"
+      },
+      "project_title": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string",
+        "description": "Task title"
+      },
+      "description": {
+        "type": "string"
+      },
+      "assigned_to_user_id": {
+        "type": "string",
+        "description": "Assigned user ID"
+      },
+      "assigned_to_name": {
+        "type": "string"
+      },
+      "assigned_to_email": {
+        "type": "string"
+      },
+      "due_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "To Do",
+          "In Progress",
+          "Review",
+          "Completed",
+          "Blocked"
+        ],
+        "default": "To Do"
+      },
+      "priority": {
+        "type": "string",
+        "enum": [
+          "Low",
+          "Medium",
+          "High",
+          "Urgent"
+        ],
+        "default": "Medium"
+      },
+      "comments": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "user_id": {
+              "type": "string"
+            },
+            "user_name": {
+              "type": "string"
+            },
+            "comment": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "attachments": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "completion_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "estimated_hours": {
+        "type": "number"
+      },
+      "actual_hours": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "project_id",
+      "title",
+      "assigned_to_user_id"
+    ]
+  }

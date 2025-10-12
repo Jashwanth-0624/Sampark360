@@ -1,0 +1,98 @@
+{
+    "name": "FundTransaction",
+    "type": "object",
+    "properties": {
+      "project_id": {
+        "type": "string",
+        "description": "Reference to Project"
+      },
+      "project_title": {
+        "type": "string"
+      },
+      "amount": {
+        "type": "number",
+        "description": "Transaction amount in INR"
+      },
+      "transaction_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "from_entity": {
+        "type": "string",
+        "description": "Source of funds"
+      },
+      "to_entity": {
+        "type": "string",
+        "description": "Recipient"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Pending",
+          "Approved",
+          "Released",
+          "Rejected",
+          "On Hold"
+        ],
+        "default": "Pending"
+      },
+      "approval_ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "References to Approval entities"
+      },
+      "reference_no": {
+        "type": "string",
+        "description": "Government reference/sanction number"
+      },
+      "transaction_type": {
+        "type": "string",
+        "enum": [
+          "Release",
+          "Refund",
+          "Adjustment"
+        ],
+        "default": "Release"
+      },
+      "purpose": {
+        "type": "string",
+        "description": "Purpose of transaction"
+      },
+      "ledger_entries": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "number"
+            }
+          }
+        }
+      },
+      "approved_by": {
+        "type": "string",
+        "description": "User ID who approved"
+      },
+      "approved_by_name": {
+        "type": "string"
+      },
+      "comments": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "project_id",
+      "amount",
+      "transaction_date",
+      "from_entity",
+      "to_entity"
+    ]
+  }

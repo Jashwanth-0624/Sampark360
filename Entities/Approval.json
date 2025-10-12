@@ -1,0 +1,79 @@
+{
+    "name": "Approval",
+    "type": "object",
+    "properties": {
+      "project_id": {
+        "type": "string"
+      },
+      "project_title": {
+        "type": "string"
+      },
+      "transaction_id": {
+        "type": "string",
+        "description": "Related fund transaction if applicable"
+      },
+      "step_name": {
+        "type": "string",
+        "description": "Approval step (e.g., District Review, State Sanction)"
+      },
+      "step_order": {
+        "type": "number",
+        "description": "Sequence in workflow"
+      },
+      "assigned_to_role": {
+        "type": "string",
+        "description": "Role responsible for approval"
+      },
+      "assigned_to_user_id": {
+        "type": "string"
+      },
+      "assigned_to_name": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Pending",
+          "Approved",
+          "Rejected",
+          "Returned",
+          "Escalated"
+        ],
+        "default": "Pending"
+      },
+      "timestamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Action timestamp"
+      },
+      "comments": {
+        "type": "string",
+        "description": "Approver comments"
+      },
+      "sla_deadline": {
+        "type": "string",
+        "format": "date-time",
+        "description": "SLA deadline for this step"
+      },
+      "escalated": {
+        "type": "boolean",
+        "default": false
+      },
+      "escalated_to": {
+        "type": "string",
+        "description": "User ID if escalated"
+      },
+      "documents_attached": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Document IDs"
+      }
+    },
+    "required": [
+      "project_id",
+      "step_name",
+      "assigned_to_role"
+    ]
+  }

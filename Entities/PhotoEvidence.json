@@ -1,0 +1,83 @@
+{
+    "name": "PhotoEvidence",
+    "type": "object",
+    "properties": {
+      "project_id": {
+        "type": "string"
+      },
+      "project_title": {
+        "type": "string"
+      },
+      "uploaded_by": {
+        "type": "string"
+      },
+      "uploaded_by_name": {
+        "type": "string"
+      },
+      "image_url": {
+        "type": "string",
+        "description": "Photo URL"
+      },
+      "thumbnail_url": {
+        "type": "string"
+      },
+      "geo_lat": {
+        "type": "number",
+        "description": "Latitude"
+      },
+      "geo_lng": {
+        "type": "number",
+        "description": "Longitude"
+      },
+      "timestamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Photo capture timestamp"
+      },
+      "verified_by": {
+        "type": "string",
+        "description": "Auditor/supervisor who verified"
+      },
+      "verified_by_name": {
+        "type": "string"
+      },
+      "verification_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "verification_status": {
+        "type": "string",
+        "enum": [
+          "Pending",
+          "Verified",
+          "Flagged",
+          "Rejected"
+        ],
+        "default": "Pending"
+      },
+      "caption": {
+        "type": "string",
+        "description": "Photo description"
+      },
+      "milestone_reference": {
+        "type": "string",
+        "description": "Related milestone"
+      },
+      "flagged_reason": {
+        "type": "string",
+        "description": "Reason if flagged"
+      },
+      "location_mismatch": {
+        "type": "boolean",
+        "default": false,
+        "description": "Auto-detected location mismatch"
+      }
+    },
+    "required": [
+      "project_id",
+      "image_url",
+      "geo_lat",
+      "geo_lng",
+      "timestamp"
+    ]
+  }

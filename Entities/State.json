@@ -1,0 +1,48 @@
+{
+    "name": "State",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "State or UT name"
+      },
+      "code": {
+        "type": "string",
+        "description": "State code (e.g., MH, UP)"
+      },
+      "contact_officer_name": {
+        "type": "string",
+        "description": "Primary nodal officer name"
+      },
+      "contact_phone": {
+        "type": "string",
+        "description": "Contact phone number"
+      },
+      "contact_email": {
+        "type": "string",
+        "format": "email",
+        "description": "Contact email"
+      },
+      "region": {
+        "type": "string",
+        "enum": [
+          "North",
+          "South",
+          "East",
+          "West",
+          "Central",
+          "Northeast"
+        ],
+        "description": "Geographic region"
+      },
+      "active_projects_count": {
+        "type": "number",
+        "default": 0,
+        "description": "Number of active projects"
+      }
+    },
+    "required": [
+      "name",
+      "code"
+    ]
+  }

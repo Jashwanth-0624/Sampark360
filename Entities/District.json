@@ -1,0 +1,44 @@
+{
+    "name": "District",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "District name"
+      },
+      "state_id": {
+        "type": "string",
+        "description": "Reference to State entity"
+      },
+      "state_name": {
+        "type": "string",
+        "description": "State name for quick reference"
+      },
+      "contact_officer": {
+        "type": "string",
+        "description": "District nodal officer"
+      },
+      "contact_phone": {
+        "type": "string"
+      },
+      "population": {
+        "type": "number",
+        "description": "District population"
+      },
+      "coordinates": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number"
+          },
+          "lng": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "required": [
+      "name",
+      "state_id"
+    ]
+  }

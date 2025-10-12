@@ -1,0 +1,48 @@
+{
+    "name": "AuditLog",
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": "string"
+      },
+      "user_name": {
+        "type": "string"
+      },
+      "user_email": {
+        "type": "string"
+      },
+      "action": {
+        "type": "string",
+        "description": "Action performed (e.g., Created, Updated, Deleted, Approved)"
+      },
+      "entity_type": {
+        "type": "string",
+        "description": "Entity affected (Project, Agency, Fund, etc.)"
+      },
+      "entity_id": {
+        "type": "string",
+        "description": "ID of affected entity"
+      },
+      "timestamp": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "metadata": {
+        "type": "object",
+        "additionalProperties": true,
+        "description": "Additional context (old values, new values, etc.)"
+      },
+      "ip_address": {
+        "type": "string"
+      },
+      "session_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "user_id",
+      "action",
+      "entity_type",
+      "entity_id"
+    ]
+  }

@@ -1,0 +1,67 @@
+{
+    "name": "Document",
+    "type": "object",
+    "properties": {
+      "project_id": {
+        "type": "string"
+      },
+      "project_title": {
+        "type": "string"
+      },
+      "uploaded_by": {
+        "type": "string",
+        "description": "User ID"
+      },
+      "uploaded_by_name": {
+        "type": "string"
+      },
+      "doc_type": {
+        "type": "string",
+        "enum": [
+          "Proposal",
+          "Approval",
+          "MOU",
+          "Progress Report",
+          "Invoice",
+          "Certificate",
+          "Photo",
+          "Other"
+        ],
+        "description": "Document category"
+      },
+      "title": {
+        "type": "string",
+        "description": "Document title"
+      },
+      "url": {
+        "type": "string",
+        "description": "File URL"
+      },
+      "file_size": {
+        "type": "number",
+        "description": "Size in bytes"
+      },
+      "upload_time": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "version": {
+        "type": "number",
+        "default": 1
+      },
+      "description": {
+        "type": "string"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "project_id",
+      "doc_type",
+      "url"
+    ]
+  }
