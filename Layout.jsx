@@ -39,7 +39,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { User, Approval } from "@/entities";
+import { User, Approval, Project } from "@/entities";
 import { LanguageProvider, useLanguage } from "@/components/LanguageContext";
 import "leaflet/dist/leaflet.css";
 
@@ -127,12 +127,61 @@ function LayoutContent({ children }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [pendingApprovals, setPendingApprovals] = useState(0);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+  const [showSearchResults, setShowSearchResults] = useState(false);
+  const searchBoxRef = React.useRef(null);
   const { language, changeLanguage, t } = useLanguage();
 
   useEffect(() => {
     loadUser();
     loadPendingApprovals();
   }, []);
+
+  // Debounced global search across pages and projects
+  useEffect(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) { setSearchResults([]); return; }
+    const handle = setTimeout(async () => {
+      const pageHits = visibleNavItems
+        .map(it => ({
+          id: `page-${it.title}`,
+          type: 'page',
+          title: t(it.title),
+          subtitle: 'Open page',
+          url: it.url,
+          icon: it.icon
+        }))
+        .filter(x => x.title.toLowerCase().includes(q));
+
+      let projectHits = [];
+      try {
+        const list = await Project.list();
+        projectHits = list
+          .map(p => ({
+            id: p.id,
+            type: 'project',
+            title: p.title,
+            subtitle: [p.district_name, p.state_name].filter(Boolean).join(', '),
+            url: createPageUrl('ProjectsList')
+          }))
+          .filter(x => x.title.toLowerCase().includes(q) || x.subtitle.toLowerCase().includes(q))
+          .slice(0, 5);
+      } catch {}
+
+      setSearchResults([...pageHits.slice(0,5), ...projectHits]);
+    }, 200);
+    return () => clearTimeout(handle);
+  }, [searchQuery, user]);
+
+  // Close search dropdown on outside click
+  useEffect(() => {
+    const onDoc = (e) => {
+      if (!searchBoxRef.current) return;
+      if (!searchBoxRef.current.contains(e.target)) setShowSearchResults(false);
+    };
+    if (showSearchResults) document.addEventListener('mousedown', onDoc);
+    return () => document.removeEventListener('mousedown', onDoc);
+  }, [showSearchResults]);
 
   const loadUser = async () => {
     try {
@@ -161,7 +210,8 @@ function LayoutContent({ children }) {
     await changeLanguage(lang, langName);
   };
 
-  const visibleNavItems = user?.role === "admin"
+  // Compute visible nav based on role (available immediately for effects)
+  const visibleNavItems = (user && user.role === "admin")
     ? navigationItems
     : navigationItems.filter(item => item.roles.includes("user"));
 
@@ -210,12 +260,12 @@ function LayoutContent({ children }) {
                           className={`mb-1 transition-all duration-200 ${
                             isActive
                               ? 'bg-gradient-to-r from-orange-500 to-green-600 text-white shadow-md hover:shadow-lg'
-                              : 'hover:bg-gray-100 text-gray-700'
+                              : 'hover:bg-orange-50 hover:ring-1 hover:ring-orange-200 text-gray-700'
                           }`}
                         >
-                          <Link to={item.url} className="flex items-center gap-3 px-4 py-3 rounded-xl">
-                            <item.icon className="w-5 h-5" />
-                            <span className="font-medium text-sm">{t(item.title)}</span>
+                          <Link to={item.url} className="group flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 hover:translate-x-1 hover:shadow-sm focus-visible:ring-2 focus-visible:ring-orange-500 hover:bg-orange-50">
+                            <item.icon className="w-5 h-5 text-gray-500 group-hover:text-orange-600" />
+                            <span className="font-medium text-sm text-gray-800 group-hover:text-orange-800">{t(item.title)}</span>
                             {item.title === "approvals" && pendingApprovals > 0 && (
                               <Badge variant="destructive" className="ml-auto">{pendingApprovals}</Badge>
                             )}
@@ -281,7 +331,7 @@ function LayoutContent({ children }) {
                     </div>
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56">
+<DropdownMenuContent align="end" side="bottom" className="w-56">
                   <DropdownMenuLabel>{t("myAccount")}</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={() => setProfileOpen(true)}>
@@ -305,15 +355,38 @@ function LayoutContent({ children }) {
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-4 flex-1">
                 <SidebarTrigger className="lg:hidden hover:bg-gray-100 p-2 rounded-lg transition-colors" />
-                <div className="hidden md:flex items-center gap-2 flex-1 max-w-xl">
+                <div ref={searchBoxRef} className="hidden md:flex items-center gap-2 flex-1 max-w-xl relative">
                   <Search className="w-5 h-5 text-gray-400" />
                   <Input
                     type="search"
                     placeholder={t("searchPlaceholder")}
                     value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onFocus={() => setShowSearchResults(true)}
+                    onChange={(e) => { setSearchQuery(e.target.value); setShowSearchResults(true); }}
+                    onKeyDown={(e) => { if (e.key === 'Escape') setShowSearchResults(false); }}
                     className="border-0 bg-gray-100/80 focus-visible:ring-orange-500"
                   />
+                  {showSearchResults && searchQuery.trim().length >= 2 && searchResults.length > 0 && (
+                    <div className="absolute left-0 right-0 top-full mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-[1000] overflow-hidden">
+                      <div className="max-h-80 overflow-y-auto">
+                        {searchResults.map(item => (
+                          <Link
+                            key={item.id}
+                            to={item.url}
+                            className="flex items-center gap-3 px-4 py-3 hover:bg-orange-50 focus:bg-orange-50 transition-colors"
+                            onClick={() => setShowSearchResults(false)}
+                          >
+                            {item.icon ? (<item.icon className="w-4 h-4 text-gray-500" />) : (<span className="w-4 h-4" />)}
+                            <div className="min-w-0">
+                              <p className="text-sm font-medium text-gray-900 truncate">{item.title}</p>
+                              {item.subtitle && <p className="text-xs text-gray-500 truncate">{item.subtitle}</p>}
+                            </div>
+                            <span className="ml-auto text-xs text-gray-400">{item.type}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "TX-101",
+    "project_id": "P-2",
+    "project_title": "Girls Hostel Construction - Lucknow",
+    "reference_no": "SAN/2024/120",
+    "transaction_type": "Release",
+    "purpose": "Milestone 1 completion",
+    "amount": 8000000,
+    "transaction_date": "2024-09-15",
+    "from_entity": "Ministry of Tribal Affairs",
+    "to_entity": "UP Rural Infrastructure Corporation",
+    "status": "Released",
+    "approved_by_name": "Finance Controller",
+    "comments": "As per sanction order",
+    "ledger_entries": [
+      { "date": "2024-09-14", "description": "Sanction issued", "amount": 8000000 },
+      { "date": "2024-09-15", "description": "Amount credited", "amount": 8000000 }
+    ]
+  },
+  {
+    "id": "TX-102",
+    "project_id": "P-1",
+    "project_title": "Adarsh Gram Development - Thane District",
+    "reference_no": "SAN/2024/121",
+    "transaction_type": "Release",
+    "purpose": "Initial grant",
+    "amount": 10000000,
+    "transaction_date": "2024-06-20",
+    "from_entity": "Ministry of Tribal Affairs",
+    "to_entity": "Maharashtra Tribal Development Agency",
+    "status": "Released",
+    "ledger_entries": [
+      { "date": "2024-06-19", "description": "Order issued", "amount": 10000000 }
+    ]
+  },
+  {
+    "id": "TX-103",
+    "project_id": "P-4",
+    "project_title": "Boys Hostel Renovation - Kolkata",
+    "reference_no": "SAN/2024/122",
+    "transaction_type": "Release",
+    "purpose": "Site mobilization",
+    "amount": 8800000,
+    "transaction_date": "2024-06-10",
+    "from_entity": "Ministry of Tribal Affairs",
+    "to_entity": "West Bengal Tribal Welfare Board",
+    "status": "Approved"
+  }
+]
+
