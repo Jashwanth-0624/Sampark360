@@ -10,7 +10,7 @@ import { Project, State } from '@/entities/all';
 import { Skeleton } from "@/components/ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import CreateProjectDialog from '../components/project/CreateProjectDialog';
+import CreateProjectDialog from '../Components/project/CreateProjectDialog';
 
 export default function ProjectsList() {
   const [projects, setProjects] = useState([]);
