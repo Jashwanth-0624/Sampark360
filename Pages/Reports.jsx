@@ -7,7 +7,7 @@ import { Project, FundTransaction } from '@/entities/all';
 import { Skeleton } from "@/components/ui/skeleton";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend, LineChart, Line, Area, AreaChart, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, CartesianGrid } from 'recharts';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useLanguage } from '../components/LanguageContext'; // Assuming this path is correct
+import { useLanguage } from '../Components/LanguageContext';
 
 const COLORS = ['#10B981', '#3B82F6', '#F97316', '#EF4444', '#6B7280', '#8B5CF6'];
 
