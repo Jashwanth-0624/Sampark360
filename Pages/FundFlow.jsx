@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { DollarSign } from 'lucide-react';
+import { IndianRupee } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import { FundTransaction } from '@/entities/FundTransaction';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -30,20 +30,20 @@ export default function FundFlow() {
 
   const getStatusColor = (status) => {
     const colors = {
-      "Released": "bg-green-100 text-green-800",
-      "Pending": "bg-orange-100 text-orange-800",
-      "Rejected": "bg-red-100 text-red-800",
-      "Approved": "bg-blue-100 text-blue-800",
-      "On Hold": "bg-yellow-100 text-yellow-800"
+      "Released": "!bg-green-100 !text-green-800",
+      "Pending": "!bg-orange-100 !text-orange-800",
+      "Rejected": "!bg-red-100 !text-red-800",
+      "Approved": "!bg-blue-100 !text-blue-800",
+      "On Hold": "!bg-yellow-100 !text-yellow-800"
     };
-    return colors[status] || "bg-gray-100 text-gray-800";
+    return colors[status] || "!bg-gray-100 !text-gray-800";
   };
   
   return (
     <div className="p-4 md:p-8 space-y-6">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
-          <DollarSign className="w-8 h-8 text-orange-500" />
+          <IndianRupee className="w-8 h-8 text-orange-500" />
           Fund Flow Ledger
         </h1>
         <ScheduleReleaseDialog onSuccess={fetchData} />
@@ -78,7 +78,7 @@ export default function FundFlow() {
                 ) : transactions.length === 0 ? (
                   <TableRow>
                     <TableCell colSpan={6} className="text-center py-8 text-gray-500">
-                      <DollarSign className="w-16 h-16 mx-auto text-gray-300 mb-4" />
+                      <IndianRupee className="w-16 h-16 mx-auto text-gray-300 mb-4" />
                       <p className="font-semibold">No fund transactions found.</p>
                       <p className="text-sm">Start by scheduling a new release to see transactions here.</p>
                     </TableCell>

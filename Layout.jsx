@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import {
-  LayoutDashboard, Building2, FolderKanban, DollarSign, CheckSquare,
+  LayoutDashboard, Building2, FolderKanban, IndianRupee, CheckSquare,
   Camera, MessageSquare, BarChart3, Settings, BookOpen, Users,
   Map, Menu, Bell, Search, Globe, LogOut, User as UserIcon, Shield, X
 } from "lucide-react";
@@ -48,7 +48,7 @@ const navigationItems = [
   { title: "agencyRegistry", url: createPageUrl("AgencyRegistry"), icon: Building2, roles: ["admin", "user"] },
   { title: "projectsMap", url: createPageUrl("ProjectsMap"), icon: Map, roles: ["admin", "user"] },
   { title: "projectsList", url: createPageUrl("ProjectsList"), icon: FolderKanban, roles: ["admin", "user"] },
-  { title: "fundFlow", url: createPageUrl("FundFlow"), icon: DollarSign, roles: ["admin", "user"] },
+  { title: "fundFlow", url: createPageUrl("FundFlow"), icon: IndianRupee, roles: ["admin", "user"] },
   { title: "approvals", url: createPageUrl("Approvals"), icon: CheckSquare, roles: ["admin", "user"] },
   { title: "taskBoard", url: createPageUrl("TaskBoard"), icon: FolderKanban, roles: ["admin", "user"] },
   { title: "evidenceGallery", url: createPageUrl("EvidenceGallery"), icon: Camera, roles: ["admin", "user"] },
@@ -93,7 +93,7 @@ function ProfileSettingsDialog({ open, onOpenChange, user }) {
           <div className="grid grid-cols-1 gap-4 text-sm">
             <div className="flex justify-between items-center py-2 border-b border-gray-100">
               <span className="text-gray-600 font-medium">{t("role")}</span>
-              <Badge variant="secondary" className="bg-green-100 text-green-800 font-medium">
+              <Badge variant="secondary" className="bg-green-100 !text-green-800 font-medium">
                 {user?.role === 'admin' ? t("admin") : t("user")}
               </Badge>
             </div>
@@ -315,35 +315,19 @@ function LayoutContent({ children }) {
 
           <SidebarFooter className="border-t border-gray-200 p-4">
             {user ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <button className="flex items-center gap-3 w-full hover:bg-gray-100 p-3 rounded-xl transition-colors">
-                    <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-green-500 rounded-full flex items-center justify-center shadow-sm">
-                      <span className="text-white font-semibold text-sm">
-                        {user.full_name?.[0]?.toUpperCase() || 'U'}
-                      </span>
-                    </div>
-                    <div className="flex-1 min-w-0 text-left">
-                      <p className="font-medium text-gray-900 text-sm truncate">
-                        {user.full_name || 'User'}
-                      </p>
-                      <p className="text-xs text-gray-500 truncate">{user.email}</p>
-                    </div>
-                  </button>
-                </DropdownMenuTrigger>
-<DropdownMenuContent align="end" side="bottom" className="w-56">
-                  <DropdownMenuLabel>{t("myAccount")}</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={() => setProfileOpen(true)}>
-                    <UserIcon className="w-4 h-4 mr-2" />
-                    {t("profileSettings")}
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleLogout}>
-                    <LogOut className="w-4 h-4 mr-2" />
-                    {t("logout")}
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <div className="flex items-center gap-3 w-full p-3 rounded-xl">
+                <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-green-500 rounded-full flex items-center justify-center shadow-sm">
+                  <span className="text-white font-semibold text-sm">
+                    {user.full_name?.[0]?.toUpperCase() || 'U'}
+                  </span>
+                </div>
+                <div className="flex-1 min-w-0 text-left">
+                  <p className="font-medium text-gray-900 text-sm truncate">
+                    {user.full_name || 'User'}
+                  </p>
+                  <p className="text-xs text-gray-500 truncate">{user.email}</p>
+                </div>
+              </div>
             ) : (
               <div className="text-center text-sm text-gray-500">Loading...</div>
             )}
@@ -448,7 +432,7 @@ function LayoutContent({ children }) {
                 </Sheet>
 
                 <div className="hidden sm:block">
-                  <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200 px-3 py-1">
+                  <Badge variant="outline" className="bg-green-50 !text-green-700 border-green-200 px-3 py-1">
                     {t("systemOnline")}
                   </Badge>
                 </div>

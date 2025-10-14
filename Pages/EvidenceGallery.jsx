@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Camera, UploadCloud, CheckCircle, AlertTriangle } from 'lucide-react';
+import { Camera, UploadCloud, CheckCircle, AlertTriangle, ChevronDown } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import { Button } from '@/components/ui/button';
 import { PhotoEvidence } from '@/entities/PhotoEvidence';
@@ -224,7 +224,12 @@ export default function EvidenceGallery() {
               <div className="space-y-2">
                 <Label>{t.selectProject || "Select Project"} *</Label>
                 <Select value={formData.project_id} onValueChange={handleProjectChange}>
-                  <SelectTrigger><SelectValue placeholder={t.chooseProject || "Choose a project"} /></SelectTrigger>
+                  <SelectTrigger>
+                    <button type="button" className="flex h-10 w-full items-center justify-between rounded-md border border-gray-300 bg-white px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+                      <SelectValue placeholder={t.chooseProject || "Choose a project"} />
+                      <ChevronDown className="w-4 h-4 text-gray-500 ml-2" />
+                    </button>
+                  </SelectTrigger>
                   <SelectContent>
                     {projects.map(p => <SelectItem key={p.id} value={p.id}>{p.title}</SelectItem>)}
                   </SelectContent>

@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Agency, State, District } from "@/entities/all";
-import { Plus } from "lucide-react";
+import { Plus, ChevronDown } from "lucide-react";
 
 export default function AddAgencyDialog({ onSuccess }) {
   const [open, setOpen] = useState(false);
@@ -88,7 +88,12 @@ export default function AddAgencyDialog({ onSuccess }) {
             <div className="space-y-2">
               <Label>Agency Type *</Label>
               <Select value={formData.type} onValueChange={v => setFormData({...formData, type: v})}>
-                <SelectTrigger><SelectValue /></SelectTrigger>
+                <SelectTrigger>
+                  <button type="button" className="flex h-10 w-full items-center justify-between rounded-md border border-gray-300 bg-white px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+                    <SelectValue placeholder="Select type" />
+                    <ChevronDown className="w-4 h-4 text-gray-500 ml-2" />
+                  </button>
+                </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="Implementing">Implementing</SelectItem>
                   <SelectItem value="Executing">Executing</SelectItem>
@@ -100,7 +105,12 @@ export default function AddAgencyDialog({ onSuccess }) {
             <div className="space-y-2">
               <Label>State *</Label>
               <Select value={formData.state_id} onValueChange={handleStateChange}>
-                <SelectTrigger><SelectValue placeholder="Select state" /></SelectTrigger>
+                <SelectTrigger>
+                  <button type="button" className="flex h-10 w-full items-center justify-between rounded-md border border-gray-300 bg-white px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+                    <SelectValue placeholder="Select state" />
+                    <ChevronDown className="w-4 h-4 text-gray-500 ml-2" />
+                  </button>
+                </SelectTrigger>
                 <SelectContent>
                   {states.map(s => <SelectItem key={s.id} value={s.id}>{s.name}</SelectItem>)}
                 </SelectContent>
@@ -108,8 +118,13 @@ export default function AddAgencyDialog({ onSuccess }) {
             </div>
             <div className="space-y-2">
               <Label>District</Label>
-              <Select value={formData.district_id} onValueChange={handleDistrictChange} disabled={!formData.state_id}>
-                <SelectTrigger><SelectValue placeholder="Select district" /></SelectTrigger>
+              <Select value={formData.district_id} onValueChange={handleDistrictChange}>
+                <SelectTrigger>
+                  <button type="button" disabled={!formData.state_id} className="flex h-10 w-full items-center justify-between rounded-md border border-gray-300 bg-white px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <SelectValue placeholder="Select district" />
+                    <ChevronDown className="w-4 h-4 text-gray-500 ml-2" />
+                  </button>
+                </SelectTrigger>
                 <SelectContent>
                   {districts.map(d => <SelectItem key={d.id} value={d.id}>{d.name}</SelectItem>)}
                 </SelectContent>

@@ -134,6 +134,8 @@ export default function Approvals() {
         comments: comments,
         timestamp: new Date().toISOString()
       });
+      // Optimistically update the local list so items move tabs immediately
+      setApprovals(prev => prev.map(a => a.id === approvalId ? { ...a, status: action, comments, timestamp: new Date().toISOString() } : a))
       alert(`${t.approvalUpdated || "Approval updated successfully"}!`);
       fetchData();
     } catch (error) {

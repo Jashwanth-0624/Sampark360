@@ -46,14 +46,14 @@ export default function ProjectsList() {
 
   const getStatusColor = (status) => {
     const colors = {
-      "In Progress": "bg-blue-100 text-blue-800",
-      "Completed": "bg-green-100 text-green-800",
-      "Delayed": "bg-red-100 text-red-800",
-      "Approval Pending": "bg-orange-100 text-orange-800",
-      "Planning": "bg-purple-100 text-purple-800",
-      "On Hold": "bg-yellow-100 text-yellow-800"
+      "In Progress": "!bg-blue-100 !text-blue-800",
+      "Completed": "!bg-green-100 !text-green-800",
+      "Delayed": "!bg-red-100 !text-red-800",
+      "Approval Pending": "!bg-orange-100 !text-orange-800",
+      "Planning": "!bg-purple-100 !text-purple-800",
+      "On Hold": "!bg-yellow-100 !text-yellow-800"
     };
-    return colors[status] || "bg-gray-100 text-gray-800";
+    return colors[status] || "!bg-gray-100 !text-gray-800";
   };
 
   const filteredProjects = projects.filter(p => {
@@ -176,6 +176,7 @@ export default function ProjectsList() {
                 <TableRow>
                   <TableHead>Project Title</TableHead>
                   <TableHead>Component</TableHead>
+                  <TableHead>Agency</TableHead>
                   <TableHead>Location</TableHead>
                   <TableHead>Status</TableHead>
                   <TableHead>Progress</TableHead>
@@ -202,6 +203,7 @@ export default function ProjectsList() {
                     <TableRow key={project.id} className="cursor-pointer hover:bg-gray-50">
                       <TableCell className="font-medium">{project.title}</TableCell>
                       <TableCell><Badge variant="outline">{project.component}</Badge></TableCell>
+                      <TableCell>{project.agency_name || '—'}</TableCell>
                       <TableCell>{project.district_name}, {project.state_name}</TableCell>
                       <TableCell><Badge className={getStatusColor(project.current_status)}>{project.current_status}</Badge></TableCell>
                       <TableCell>

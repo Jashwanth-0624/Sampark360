@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Project, FundTransaction, Task, Approval, State, Agency } from "@/entities/all";
 import {
-  TrendingUp, TrendingDown, Activity, DollarSign, FolderKanban,
+  TrendingUp, TrendingDown, Activity, IndianRupee, FolderKanban,
   AlertCircle, CheckCircle, Clock, Users, MapPin, ArrowRight
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -74,14 +74,14 @@ export default function Dashboard() {
 
   const getStatusColor = (status) => {
     const colors = {
-      "In Progress": "bg-blue-100 text-blue-800",
-      "Completed": "bg-green-100 text-green-800",
-      "Delayed": "bg-red-100 text-red-800",
-      "Planning": "bg-gray-100 text-gray-800",
-      "On Hold": "bg-yellow-100 text-yellow-800",
-      "Approval Pending": "bg-orange-100 text-orange-800"
+      "In Progress": "!bg-blue-100 !text-blue-800",
+      "Completed": "!bg-green-100 !text-green-800",
+      "Delayed": "!bg-red-100 !text-red-800",
+      "Planning": "!bg-gray-100 !text-gray-800",
+      "On Hold": "!bg-yellow-100 !text-yellow-800",
+      "Approval Pending": "!bg-orange-100 !text-orange-800"
     };
-    return colors[status] || "bg-gray-100 text-gray-800";
+    return colors[status] || "!bg-gray-100 !text-gray-800";
   };
 
   const StatCard = ({ title, value, subtitle, icon: Icon, trend, trendValue, color = "bg-blue-500" }) => (
@@ -138,13 +138,13 @@ export default function Dashboard() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link to={createPageUrl("ProjectsList")}>
-              <Button size="lg" variant="secondary" className="bg-white text-gray-900 hover:bg-gray-100">
+              <Button size="lg" variant="secondary" className="!bg-white !text-gray-900 hover:!bg-gray-100">
                 View All Projects
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
             <Link to={createPageUrl("AdminConsole")}>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
+              <Button size="lg" variant="outline" className="!bg-transparent !border-white !text-white hover:!bg-white/20">
                 Admin Console
               </Button>
             </Link>
@@ -167,7 +167,7 @@ export default function Dashboard() {
           title="Total Budget"
           value={formatCurrency(stats.totalBudget)}
           subtitle={`${formatCurrency(stats.fundsReleased)} released`}
-          icon={DollarSign}
+  icon={IndianRupee}
           color="bg-green-500"
           trend="up"
           trendValue="+8%"
@@ -304,7 +304,7 @@ export default function Dashboard() {
             </Link>
             <Link to={createPageUrl("FundFlow")}>
               <Button variant="outline" className="w-full h-20 flex flex-col gap-2">
-                <DollarSign className="w-6 h-6" />
+                <IndianRupee className="w-6 h-6" />
                 <span className="text-xs">Fund Flow</span>
               </Button>
             </Link>
