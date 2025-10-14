@@ -7,9 +7,9 @@ import { Agency } from '@/entities/all';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import AddAgencyDialog from '../components/agency/AddAgencyDialog';
+import AddAgencyDialog from '../Components/agency/AddAgencyDialog';
 import { ExtractDataFromUploadedFile, UploadFile } from '@/integrations/Core';
-import { useLanguage } from '../components/LanguageContext';
+import { useLanguage } from '../Components/LanguageContext';
 
 export default function AgencyRegistry() {
   const [agencies, setAgencies] = useState([]);
