@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Camera, UploadCloud, CheckCircle, AlertTriangle, ChevronDown } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import { Button } from '@/components/ui/button';
-import { PhotoEvidence } from '@/entities/PhotoEvidence';
-import { Project } from '@/entities/Project';
+import { PhotoEvidence } from '@/Entities/PhotoEvidence';
+import { Project } from '@/Entities/Project';
 import { User } from '@/entities/User';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Badge } from '@/components/ui/badge';
@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { UploadFile } from '@/integrations/Core';
-import { useLanguage } from '../components/LanguageContext';
+import { useLanguage } from '../Components/LanguageContext';
 
 export default function EvidenceGallery() {
   const [evidence, setEvidence] = useState([]);

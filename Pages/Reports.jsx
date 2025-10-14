@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { BarChart3, Bot, FileDown, PieChart as PieIcon, TrendingUp, DollarSign, Activity, Target } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import { Button } from '@/components/ui/button';
-import { Project, FundTransaction } from '@/entities/all';
+import { Project, FundTransaction } from '@/Entities/all';
 import { Skeleton } from "@/components/ui/skeleton";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend, LineChart, Line, Area, AreaChart, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, CartesianGrid } from 'recharts';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";

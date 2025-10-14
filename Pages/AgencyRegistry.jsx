@@ -3,12 +3,12 @@ import { Building2, Download, MapPin, Phone, Mail } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from '@/components/ui/input';
-import { Agency } from '@/entities/Agency';
+import { Agency } from '@/Entities/Agency';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import AddAgencyDialog from '../components/agency/AddAgencyDialog';
-import { useLanguage } from '../components/LanguageContext';
+import AddAgencyDialog from '../Components/agency/AddAgencyDialog';
+import { useLanguage } from '../Components/LanguageContext';
 
 export default function AgencyRegistry() {
   const [agencies, setAgencies] = useState([]);

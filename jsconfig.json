@@ -2,7 +2,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["./*"]
     }
+  },
+  "exclude": ["node_modules", "dist"],
+  "typeAcquisition": {
+    "enable": true
   }
 }
