@@ -3,6 +3,7 @@ import { Building2, Download, MapPin, Phone, Mail } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/Components/ui/card.jsx";
 import { Button } from "@/Components/ui/button.jsx";
 import { Input } from '@/Components/ui/input.jsx';
+import { Agency } from '@/Entities/Agency';
 import { Skeleton } from '@/Components/ui/skeleton.jsx';
 import { Badge } from '@/Components/ui/badge.jsx';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/Components/ui/table.jsx";
