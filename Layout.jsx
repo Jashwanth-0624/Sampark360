@@ -19,7 +19,7 @@ import {
   SidebarFooter,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar";
+} from "@/components/ui/sidebar.jsx";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -40,7 +40,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { User, Approval, Project } from "@/Entities";
-import { LanguageProvider, useLanguage } from "@/Components/LanguageContext";
+import { LanguageProvider, useLanguage } from "@/Components/LanguageContext.jsx";
 import "leaflet/dist/leaflet.css";
 
 const navigationItems = [
