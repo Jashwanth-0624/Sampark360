@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Project, Agency } from '@/entities/all'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/Components/ui/dialog.jsx'
+import { Button } from '@/Components/ui/button.jsx'
+import { Input } from '@/Components/ui/input.jsx'
+import { Textarea } from '@/Components/ui/textarea.jsx'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/Components/ui/select.jsx'
+import { Project, Agency } from '@/Entities/all'
 import { PlusCircle, ChevronDown } from 'lucide-react'
 
 export default function CreateProjectDialog({ onSuccess }) {

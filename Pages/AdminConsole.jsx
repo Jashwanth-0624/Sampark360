@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Settings, Users, Database, ShieldCheck, Presentation, AlertCircle, CheckCircle, Activity, FileDown } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Project, Agency, FundTransaction, Task, Approval, PhotoEvidence } from '@/entities/all';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/Components/ui/card.jsx";
+import { Button } from '@/Components/ui/button.jsx';
+import { Badge } from '@/Components/ui/badge.jsx';
+import { Progress } from '@/Components/ui/progress.jsx';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/Components/ui/dialog.jsx";
+import { Alert, AlertDescription } from "@/Components/ui/alert.jsx";
+import { Project, Agency, FundTransaction, Task, Approval, PhotoEvidence } from '@/Entities/all';
 
 export default function AdminConsole() {
   const [seeding, setSeeding] = useState(false);

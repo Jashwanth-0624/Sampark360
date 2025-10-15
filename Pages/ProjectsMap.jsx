@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Map, Layers, MapPin } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
-import { Project } from '@/entities/Project';
-import { Skeleton } from "@/components/ui/skeleton";
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/Components/ui/card.jsx";
+import { Project } from '@/Entities/Project';
+import { Skeleton } from "@/Components/ui/skeleton.jsx";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { Badge } from '@/components/ui/badge';
+import { Badge } from '@/Components/ui/badge.jsx';
 
 export default function ProjectsMap() {
   const [projects, setProjects] = useState([]);

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { IndianRupee } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
-import { FundTransaction } from '@/entities/FundTransaction';
-import { Skeleton } from '@/components/ui/skeleton';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/Components/ui/card.jsx";
+import { FundTransaction } from '@/Entities/FundTransaction';
+import { Skeleton } from '@/Components/ui/skeleton.jsx';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/Components/ui/table.jsx";
+import { Badge } from "@/Components/ui/badge.jsx";
 import { format } from 'date-fns';
 import ScheduleReleaseDialog from '@/components/fund/ScheduleReleaseDialog';
 

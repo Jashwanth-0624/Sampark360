@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { FolderKanban, Filter, X } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from '@/components/ui/input';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/Components/ui/card.jsx";
+import { Button } from "@/Components/ui/button.jsx";
+import { Input } from '@/Components/ui/input.jsx';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/Components/ui/table.jsx";
+import { Badge } from "@/Components/ui/badge.jsx";
+import { Progress } from "@/Components/ui/progress.jsx";
 import { Project, State } from '@/Entities/all';
-import { Skeleton } from "@/components/ui/skeleton";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Skeleton } from "@/Components/ui/skeleton.jsx";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/Components/ui/select.jsx";
+import { Popover, PopoverContent, PopoverTrigger } from "@/Components/ui/popover.jsx";
 import CreateProjectDialog from '../Components/project/CreateProjectDialog';
 
 export default function ProjectsList() {

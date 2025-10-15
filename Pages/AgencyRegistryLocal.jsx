@@ -6,7 +6,6 @@ import { Input } from '@/Components/ui/input.jsx';
 import { Skeleton } from '@/Components/ui/skeleton.jsx';
 import { Badge } from '@/Components/ui/badge.jsx';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/Components/ui/table.jsx";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import AddAgencyDialog from '../Components/agency/AddAgencyDialog';
 import { useLanguage } from '../Components/LanguageContext';
 

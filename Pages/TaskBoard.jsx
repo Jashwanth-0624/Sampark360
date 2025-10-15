@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Trello, User, Tag, Calendar, AlertTriangle } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
-import { Task } from '@/entities/Task';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/Components/ui/card.jsx";
+import { Task } from '@/Entities/Task';
+import { Skeleton } from '@/Components/ui/skeleton.jsx';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
-import { Badge } from '@/components/ui/badge';
+import { Badge } from '@/Components/ui/badge.jsx';
 import { format } from 'date-fns';
 
 const columns = {
