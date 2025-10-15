@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/com
 import { Button } from '@/components/ui/button';
 import { PhotoEvidence } from '@/Entities/PhotoEvidence';
 import { Project } from '@/Entities/Project';
-import { User } from '@/entities/User';
+import { User } from '@/Entities/User';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Badge } from '@/components/ui/badge';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { Project, FundTransaction, Task, Approval, State, Agency } from "@/entities/all";
+import { Project, FundTransaction, Task, Approval, State, Agency } from "@/Entities/all";
 import {
   TrendingUp, TrendingDown, Activity, IndianRupee, FolderKanban,
   AlertCircle, CheckCircle, Clock, Users, MapPin, ArrowRight

@@ -39,8 +39,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { User, Approval, Project } from "@/entities";
-import { LanguageProvider, useLanguage } from "@/components/LanguageContext";
+import { User, Approval, Project } from "@/Entities";
+import { LanguageProvider, useLanguage } from "@/Components/LanguageContext";
 import "leaflet/dist/leaflet.css";
 
 const navigationItems = [
