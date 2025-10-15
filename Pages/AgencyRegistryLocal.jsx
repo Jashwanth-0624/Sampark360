@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Building2, Download, MapPin, Phone, Mail } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from '@/components/ui/input';
-import { Agency } from '@/Entities/all';
-import { Skeleton } from '@/components/ui/skeleton';
-import { Badge } from '@/components/ui/badge';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/Components/ui/card.jsx";
+import { Button } from "@/Components/ui/button.jsx";
+import { Input } from '@/Components/ui/input.jsx';
+import { Skeleton } from '@/Components/ui/skeleton.jsx';
+import { Badge } from '@/Components/ui/badge.jsx';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/Components/ui/table.jsx";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import AddAgencyDialog from '../Components/agency/AddAgencyDialog';
 import { useLanguage } from '../Components/LanguageContext';

@@ -19,10 +19,10 @@ import {
   SidebarFooter,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar.jsx";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
+} from "@/Components/ui/sidebar.jsx";
+import { Button } from "@/Components/ui/button.jsx";
+import { Badge } from "@/Components/ui/badge.jsx";
+import { Input } from "@/Components/ui/input.jsx";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,7 +30,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/Components/ui/dropdown-menu.jsx";
 import {
   Sheet,
   SheetContent,
@@ -38,7 +38,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from "@/Components/ui/sheet.jsx";
 import { User, Approval, Project } from "@/Entities";
 import { LanguageProvider, useLanguage } from "@/Components/LanguageContext.jsx";
 import "leaflet/dist/leaflet.css";

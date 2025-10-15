@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { MessageSquare, Send, Pin, User } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
-import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
-import { Badge } from '@/components/ui/badge';
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/Components/ui/card.jsx";
+import { Button } from '@/Components/ui/button.jsx';
+import { Textarea } from '@/Components/ui/textarea.jsx';
+import { Badge } from '@/Components/ui/badge.jsx';
+import { Avatar, AvatarFallback } from "@/Components/ui/avatar.jsx";
 import { formatDistanceToNow } from 'date-fns';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useLanguage } from '../Components/LanguageContext';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/Components/ui/dialog.jsx";
+import { Label } from "@/Components/ui/label.jsx";
+import { Input } from "@/Components/ui/input.jsx";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/Components/ui/select.jsx";
+import { useLanguage } from '../Components/LanguageContext.jsx';
 
 const sampleMessages = [
   {

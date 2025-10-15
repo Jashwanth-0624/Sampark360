@@ -6,10 +6,10 @@ import {
   TrendingUp, TrendingDown, Activity, IndianRupee, FolderKanban,
   AlertCircle, CheckCircle, Clock, Users, MapPin, ArrowRight
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card.jsx";
+import { Button } from "@/Components/ui/button.jsx";
+import { Badge } from "@/Components/ui/badge.jsx";
+import { Skeleton } from "@/Components/ui/skeleton.jsx";
 
 export default function Dashboard() {
   const [loading, setLoading] = useState(true);

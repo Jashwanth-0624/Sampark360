@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { CheckSquare, Clock, ThumbsUp, ThumbsDown, AlertCircle } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/Components/ui/card.jsx";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/Components/ui/tabs.jsx";
 import { Approval } from '@/Entities/Approval';
-import { Button } from '@/components/ui/button';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Button } from '@/Components/ui/button.jsx';
+import { Skeleton } from '@/Components/ui/skeleton.jsx';
 import { format, formatDistanceToNow } from 'date-fns';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Textarea } from "@/components/ui/textarea";
-import { useLanguage } from '../Components/LanguageContext';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/Components/ui/dialog.jsx";
+import { Textarea } from "@/Components/ui/textarea.jsx";
+import { useLanguage } from '../Components/LanguageContext.jsx';
 
 const ApprovalItem = ({ approval, onAction }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
